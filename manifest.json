@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Live Guard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ตรวจคุณภาพไลฟ์ YouTube, วิเคราะห์สาเหตุกระตุก และกด LIVE ให้อัตโนมัติเมื่อไลฟ์กระตุกหรือหลุดจาก Live Now",
   "permissions": ["storage"],
   "action": {

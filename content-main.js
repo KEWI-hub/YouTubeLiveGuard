@@ -305,15 +305,24 @@
         'padding:3px 9px;border-radius:6px;white-space:nowrap;';
       p.appendChild(el);
     }
-    const parts = [
-      `<b style="color:${COLORS[s.level]}">●</b> ${LEVEL_TH[s.level]}`,
+    // YouTube บังคับ Trusted Types -> ห้ามใช้ innerHTML ต้องสร้าง DOM เอง
+    const dot = colored('●', COLORS[s.level]);
+    const text = [
+      ` ${LEVEL_TH[s.level]}`,
       s.quality,
       `buf ${s.buffer.toFixed(1)}s`,
       s.latency != null ? `ห่าง Live ${s.latency.toFixed(1)}s` : null,
-      `เฟรมตก ${(s.dropRate * 100).toFixed(1)}%`,
-      s.stalling ? '<b style="color:#e74c3c">กำลังค้าง…</b>' : null
-    ].filter(Boolean);
-    el.innerHTML = parts.join(' · ');
+      `เฟรมตก ${(s.dropRate * 100).toFixed(1)}%`
+    ].filter(Boolean).join(' · ');
+    el.replaceChildren(dot, text);
+    if (s.stalling) el.append(' · ', colored('กำลังค้าง…', COLORS.poor));
+  }
+
+  function colored(text, color) {
+    const b = document.createElement('b');
+    b.style.color = color;
+    b.textContent = text;
+    return b;
   }
 
   function toast(p, text) {
