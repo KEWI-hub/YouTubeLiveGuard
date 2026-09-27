@@ -40,3 +40,6 @@ input[type=number] { width:52px; background:var(--card); color:var(--fg); border
 .switch span::before { content:""; position:absolute; width:16px; height:16px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; }
 .switch input:checked + span { background:var(--red); }
 .switch input:checked + span::before { transform:translateX(16px); }
+footer { padding:8px 14px 12px; border-top:1px solid var(--line); text-align:center; }
+.kofi { display:inline-block; background:#29abe0; color:#fff; text-decoration:none; font-weight:700; border-radius:18px; padding:6px 16px; }
+.kofi:hover { background:#1f95c4; }
