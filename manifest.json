@@ -1,23 +1,46 @@
 {
   "manifest_version": 3,
   "name": "YouTube Live Guard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ตรวจคุณภาพไลฟ์ YouTube, วิเคราะห์สาเหตุกระตุก และกด LIVE ให้อัตโนมัติเมื่อไลฟ์กระตุกหรือหลุดจาก Live Now",
-  "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
   "action": {
     "default_title": "YouTube Live Guard",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
   "content_scripts": [
     {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["content-main.js"],
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content-main.js"
+      ],
       "world": "MAIN",
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["defaults.js", "content-isolated.js"],
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "defaults.js",
+        "content-isolated.js"
+      ],
       "run_at": "document_idle"
     }
   ]
