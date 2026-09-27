@@ -1,0 +1,42 @@
+:root { --bg:#0f0f0f; --card:#1d1d1d; --line:#2e2e2e; --fg:#f1f1f1; --mute:#aaa; --red:#ff0033; --good:#2ecc71; --fair:#f1c40f; --poor:#e74c3c; }
+* { box-sizing: border-box; }
+body { margin:0; width:360px; background:var(--bg); color:var(--fg); font:13px/1.45 "Segoe UI", Roboto, Tahoma, sans-serif; }
+header { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); }
+.brand { font-weight:700; font-size:15px; }
+.logo { display:inline-block; background:var(--red); color:#fff; border-radius:6px; padding:0 6px; font-size:11px; margin-right:4px; }
+section, details { padding:10px 14px; }
+.msg { color:var(--mute); padding:14px 0; text-align:center; }
+.health { display:flex; gap:12px; align-items:center; margin-bottom:10px; }
+.score { width:54px; height:54px; border-radius:50%; display:grid; place-items:center; font-size:18px; font-weight:700; border:4px solid var(--line); flex:none; }
+.level { font-weight:700; font-size:15px; }
+.title { color:var(--mute); font-size:12px; max-height:34px; overflow:hidden; }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.grid div { background:var(--card); border-radius:8px; padding:6px 8px; }
+.grid span { display:block; color:var(--mute); font-size:11px; }
+.grid b { font-size:13px; }
+.actions { display:flex; gap:6px; margin:10px 0 4px; }
+button { flex:1; background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:7px 6px; cursor:pointer; font:inherit; }
+button:hover { border-color:#555; }
+button.primary { background:var(--red); border-color:var(--red); font-weight:700; }
+#auto { flex:0 0 56px; }
+h3 { font-size:12px; color:var(--mute); margin:12px 0 6px; font-weight:600; }
+h3 small { font-weight:400; }
+ul { list-style:none; margin:0; padding:0; }
+#issues li { background:var(--card); border-left:4px solid var(--good); border-radius:6px; padding:7px 9px; margin-bottom:6px; }
+#issues li.fair { border-left-color:var(--fair); }
+#issues li.poor { border-left-color:var(--poor); }
+#issues li b { display:block; }
+#issues li p { margin:3px 0 0; color:var(--mute); font-size:12px; }
+#issues li button { margin-top:6px; padding:4px 8px; font-size:12px; }
+#log li { color:var(--mute); font-size:12px; padding:2px 0; border-bottom:1px dashed var(--line); }
+#log li time { color:#777; margin-right:6px; }
+details { border-top:1px solid var(--line); }
+summary { cursor:pointer; font-weight:600; }
+details label { display:block; margin:8px 0; }
+input[type=number] { width:52px; background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:4px; padding:2px 4px; }
+.switch { position:relative; width:38px; height:22px; }
+.switch input { opacity:0; width:0; height:0; }
+.switch span { position:absolute; inset:0; background:#444; border-radius:22px; cursor:pointer; transition:.2s; }
+.switch span::before { content:""; position:absolute; width:16px; height:16px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; }
+.switch input:checked + span { background:var(--red); }
+.switch input:checked + span::before { transform:translateX(16px); }

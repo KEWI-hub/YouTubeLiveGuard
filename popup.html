@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>YouTube Live Guard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="logo">▶</span> Live Guard</div>
+    <label class="switch" title="เปิด/ปิด"><input type="checkbox" id="enabled"><span></span></label>
+  </header>
+
+  <section id="status">
+    <div id="msg" class="msg">กำลังเชื่อมต่อ…</div>
+    <div id="panel" hidden>
+      <div class="health">
+        <div id="score" class="score">–</div>
+        <div>
+          <div id="level" class="level">–</div>
+          <div id="title" class="title"></div>
+        </div>
+      </div>
+      <div class="grid">
+        <div><span>ความละเอียด</span><b id="quality">–</b></div>
+        <div><span>บัฟเฟอร์</span><b id="buffer">–</b></div>
+        <div><span>ห่าง Live</span><b id="latency">–</b></div>
+        <div><span>เฟรมตก</span><b id="drop">–</b></div>
+        <div><span>ความเร็วเน็ต</span><b id="bw">–</b></div>
+        <div><span>กระตุก/นาที</span><b id="stalls">–</b></div>
+      </div>
+      <div class="actions">
+        <button id="jump" class="primary">⚡ เด้งไป LIVE</button>
+        <button id="lower">📉 ลดความละเอียด</button>
+        <button id="auto">Auto</button>
+      </div>
+      <h3>วิเคราะห์ &amp; วิธีแก้</h3>
+      <ul id="issues"></ul>
+      <h3>เหตุการณ์ <small id="jumps"></small></h3>
+      <ul id="log"></ul>
+    </div>
+  </section>
+
+  <details>
+    <summary>ตั้งค่า</summary>
+    <label><input type="checkbox" id="autoJumpOnStall"> ไลฟ์ค้างเกิน <input type="number" id="stallSeconds" min="0.5" max="30" step="0.5"> วิ → กด LIVE</label>
+    <label>กระตุกสั้นๆ <input type="number" id="frequentStalls" min="2" max="20"> ครั้ง/นาที → กด LIVE</label>
+    <label><input type="checkbox" id="autoJumpOnLatency"> ช้ากว่า Live เกิน <input type="number" id="maxLatency" min="5" max="600"> วิ → กด LIVE</label>
+    <label><input type="checkbox" id="autoLowerQuality"> เด้ง LIVE ≥3 ครั้งใน 2 นาที → ลดความละเอียดอัตโนมัติ</label>
+    <label><input type="checkbox" id="showOverlay"> แสดงแถบสถานะบนวิดีโอ</label>
+    <label>เว้นระยะระหว่างการเด้ง <input type="number" id="cooldown" min="3" max="120"> วิ</label>
+  </details>
+
+  <script src="defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
